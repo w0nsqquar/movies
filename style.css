@@ -1,0 +1,793 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #f5f0eb;
+    --bg-secondary: #ffffff;
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --card-bg: #ffffff;
+    --border: #e0dcd8;
+    --accent: #781F19;
+    --accent-hover: #8B2E28;
+    --navbar-bg: #ffffff;
+    --scrollbar: #c0bcb8;
+    --btn-bg: #474A51;
+    --btn-hover: #5A5D65;
+}
+
+body.dark {
+    --bg-primary: #2a2c30;
+    --bg-secondary: #1e2025;
+    --text-primary: #e8e8e8;
+    --text-secondary: #b0b0b0;
+    --card-bg: #32353a;
+    --border: #434B4D;
+    --accent: #781F19;
+    --accent-hover: #8B2E28;
+    --navbar-bg: #25272c;
+    --scrollbar: #434B4D;
+    --btn-bg: #474A51;
+    --btn-hover: #5A5D65;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+/* ========== НАВИГАЦИЯ ========== */
+.navbar {
+    background: var(--navbar-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #781F19;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.02);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #781F19;
+}
+
+/* ========== КНОПКИ ========== */
+.btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #781F19;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #8B2E28;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: var(--btn-bg);
+    color: white;
+    border: none;
+}
+
+.btn-outline:hover {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+.btn-theme {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.btn-back {
+    background: #781F19;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 35px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.btn-back:hover {
+    background: #8B2E28;
+    transform: translateX(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-small {
+    background: #781F19;
+    color: white;
+    border: none;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+}
+
+.btn-small:hover {
+    background: #8B2E28;
+    transform: translateY(-1px);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* ========== КОНТЕЙНЕР ========== */
+.container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* ========== БАННЕР ========== */
+.welcome-banner {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.welcome-banner h1 {
+    color: #781F19;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.banner-slogan {
+    font-style: italic;
+    color: #781F19;
+    font-size: 1.1rem;
+    margin-top: 12px;
+    font-weight: 500;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* ========== СЕКЦИИ ========== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0 1rem 0;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    color: #781F19;
+}
+
+/* ========== КАРУСЕЛИ ========== */
+.movies-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem 0.5rem;
+    scroll-behavior: smooth;
+    min-height: 380px;
+}
+
+.movies-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.movies-scroll::-webkit-scrollbar-track {
+    background: var(--scrollbar);
+    border-radius: 10px;
+}
+
+.movies-scroll::-webkit-scrollbar-thumb {
+    background: #781F19;
+    border-radius: 10px;
+}
+
+.movies-scroll::-webkit-scrollbar-thumb:hover {
+    background: #8B2E28;
+}
+
+.movies-scroll .movie-card {
+    flex: 0 0 220px;
+    min-width: 220px;
+    cursor: pointer;
+}
+
+.movies-scroll .movie-card:active {
+    cursor: grabbing;
+}
+
+/* ========== СЕТКА ФИЛЬМОВ ========== */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* ========== КАРТОЧКА ФИЛЬМА ========== */
+.movie-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid var(--border);
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.movie-poster {
+    height: 300px;
+    background: linear-gradient(145deg, #434B4D, #2a2c30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    overflow: hidden;
+}
+
+.movie-info {
+    padding: 1rem;
+}
+
+.movie-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-year {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.stars {
+    color: #f5a623;
+    font-size: 0.85rem;
+}
+
+/* ========== КНОПКИ В КАРТОЧКЕ ========== */
+.card-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 20px;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+}
+
+.icon-btn.favorite {
+    color: #e74c3c;
+}
+
+/* ========== ФОРМЫ ========== */
+.form-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 550px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #781F19;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.form-group input,
+.form-card input,
+.form-card textarea,
+.form-card select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+}
+
+.form-footer a {
+    color: #781F19;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.profile-reviews {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.profile-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.profile-buttons .btn {
+    flex: 1;
+}
+
+/* ========== ФИЛЬТРЫ И ПОИСК ========== */
+.filters-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+.filter-select {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: 1px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.filter-select:hover {
+    border-color: #781F19;
+}
+
+.search-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.75rem 1.2rem;
+    border-radius: 35px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #781F19;
+    box-shadow: 0 0 0 2px rgba(120, 31, 25, 0.2);
+}
+
+/* ========== ПАГИНАЦИЯ ========== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.pagination-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pagination-btn:hover {
+    background: #781F19;
+    color: white;
+}
+
+.pagination-btn.active {
+    background: #781F19;
+    color: white;
+    border-color: #781F19;
+}
+
+/* ========== СКРОЛЛ БАР ========== */
+.scroll-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.scroll-btn {
+    background: #781F19;
+    color: white;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+}
+
+.scroll-btn:hover {
+    background: #8B2E28;
+    transform: scale(1.05);
+}
+
+/* ========== ДЕТАЛЬНАЯ КАРТОЧКА ========== */
+.detail-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 1.5rem;
+}
+
+.detail-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.detail-poster {
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(145deg, #434B4D, #2a2c30);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    overflow: hidden;
+}
+
+.detail-info {
+    flex: 1;
+}
+
+.detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.detail-meta span {
+    background: var(--bg-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.detail-info h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    color: #781F19;
+}
+
+.detail-description {
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.detail-description h3 {
+    margin-bottom: 0.5rem;
+    color: #781F19;
+}
+
+/* ========== ОТЗЫВЫ ========== */
+.reviews-wrapper {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--border);
+}
+
+.reviews-wrapper h3 {
+    margin-bottom: 1rem;
+    color: #781F19;
+    font-size: 1.3rem;
+}
+
+.review {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.review-author {
+    font-weight: 700;
+    color: #781F19;
+}
+
+.review-stars {
+    color: #f5a623;
+}
+
+.review-text {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.user-review {
+    border-left: 3px solid #e74c3c;
+    background: var(--bg-primary);
+}
+
+.delete-review-btn {
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: #e74c3c;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.3rem;
+    border-radius: 5px;
+}
+
+.delete-review-btn:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.review-form-container {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.review-form-container h4 {
+    margin-bottom: 1rem;
+    color: #781F19;
+}
+
+.review-form-container input,
+.review-form-container select,
+.review-form-container textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.review-form-container textarea {
+    resize: vertical;
+}
+
+/* ========== РЕКОМЕНДАЦИИ ========== */
+.recommendation-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    text-align: center;
+    min-width: 260px;
+}
+
+.recommendation-message {
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* ========== АКТЁРЫ ========== */
+.actors-list {
+    margin: 0.5rem 0 1rem 1.5rem;
+    line-height: 1.6;
+}
+
+.actors-list li {
+    margin-bottom: 0.3rem;
+}
+
+/* ========== ПОСТЕРЫ И ТРЕЙЛЕРЫ ========== */
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.detail-poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+
+/* ========== АВТОРИЗАЦИЯ ========== */
+#authButtons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+/* ========== АДАПТИВ ========== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .detail-content {
+        flex-direction: column;
+    }
+    
+    .detail-poster {
+        width: 100%;
+        height: 250px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    
+    #authButtons {
+        justify-content: center;
+    }
+    
+    .profile-buttons {
+        flex-direction: column;
+    }
+    
+}
+
+/* ========== ТЕМНЫЙ РЕЖИМ (TOGGLE SWITCH) ========== */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+/* Тёмная тема (включён) */
+input:checked + .slider {
+    background-color: #781F19;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* При наведении */
+.theme-switch:hover .slider {
+    box-shadow: 0 0 5px rgba(120, 31, 25, 0.4);
+}
