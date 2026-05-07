@@ -8,9 +8,9 @@ let currentPage = 1;
 const itemsPerPage = 20;
 let filteredMovies = [];
 
-const API_URL = 'https://ваш-логин.github.io/filmoteka/api'; // <-- ЗАМЕНИТЕ НА ВАШУ ССЫЛКУ
+const API_URL = 'https://w0nsqquar.github.io/filmoteka/api'; 
 
-// ========== РОУТЕР (РАБОТАЕТ НА GITHUB PAGES) ==========
+// ========== РОУТЕР ==========
 function navigate(screen, movieId = null) {
     let hash = screen;
     if (screen === 'movieDetail' && movieId) {
