@@ -10,23 +10,20 @@
 <body>
 
 <nav class="navbar">
-    <div class="logo" onclick="event.preventDefault(); navigate('main')">🎬 MovieBase</div>
-
+    <div class="logo" onclick="showScreen('main')">🎬 MovieBase</div>
     <div class="nav-links">
-        <a href="#main" onclick="event.preventDefault(); navigate('main')">Главная</a>
-        <a href="#movies" onclick="event.preventDefault(); navigate('movies')">Фильмы</a>
-        <a href="#favorites" onclick="event.preventDefault(); navigate('favorites')">Избранное</a>
-        <a href="#profile" onclick="event.preventDefault(); navigate('profile')" id="profileLink" style="display: none;">Профиль</a>
-
+        <a href="#" onclick="showScreen('main')">Главная</a>
+        <a href="#" onclick="showScreen('movies')">Фильмы</a>
+        <a href="#" onclick="showScreen('favorites')">Избранное</a>
+        <a href="#" onclick="showScreen('profile')" id="profileLink" style="display: none;">Профиль</a>
         <div id="authButtons">
-            <button class="btn btn-outline" onclick="navigate('login')">Вход</button>
-            <button class="btn btn-primary" onclick="navigate('register')">Регистрация</button>
+            <button class="btn btn-outline" onclick="showScreen('login')">Вход</button>
+            <button class="btn btn-primary" onclick="showScreen('register')">Регистрация</button>
         </div>
-
         <label class="theme-switch">
-            <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
-            <span class="slider"></span>
-        </label>
+    <input type="checkbox" id="themeToggle" onchange="toggleTheme()">
+    <span class="slider"></span>
+</label>
     </div>
 </nav>
 
@@ -69,7 +66,7 @@
 
     <!-- ФИЛЬМЫ С ФИЛЬТРАМИ -->
     <div id="moviesScreen" style="display: none;">
-        <button class="btn-back" onclick="navigate('main')">← Назад</button>
+        <button class="btn-back" onclick="showScreen('main')">← Назад</button>
         
         <div class="search-wrapper">
             <div class="search-bar">
@@ -138,7 +135,7 @@
 
     <!-- ИЗБРАННОЕ -->
     <div id="favoritesScreen" style="display: none;">
-        <button class="btn-back" onclick="navigate('main')">← Назад</button>
+        <button class="btn-back" onclick="showScreen('main')">← Назад</button>
         <h1>Избранные фильмы</h1>
         <div id="favoritesGrid" class="movies-grid"></div>
     </div>
@@ -146,7 +143,7 @@
     <!-- ПРОФИЛЬ -->
     <div id="profileScreen" style="display: none;">
         <div class="form-card">
-            <button class="btn-back" onclick="navigate('main')">← Назад</button>
+            <button class="btn-back" onclick="showScreen('main')">← Назад</button>
             <h2 class="form-title">Мой профиль</h2>
             <div class="form-group"><label>Имя</label><input type="text" id="profileName" placeholder="Ваше имя"></div>
             <div class="form-group"><label>Email</label><input type="email" id="profileEmail" placeholder="Email"></div>
@@ -163,7 +160,7 @@
 
     <!-- РЕГИСТРАЦИЯ -->
     <div id="registerScreen" class="form-card" style="display: none;">
-        <button class="btn-back" onclick="navigate('main')">← Назад</button>
+        <button class="btn-back" onclick="showScreen('main')">← Назад</button>
         <h2 class="form-title">Регистрация</h2>
         <div class="form-group"><input type="text" id="regName" placeholder="Имя"></div>
         <div class="form-group"><input type="email" id="regEmail" placeholder="Email"></div>
@@ -171,17 +168,17 @@
         <div class="form-group"><input type="text" id="regPhone" placeholder="Номер телефона"></div>
         <div class="form-group"><input type="date" id="regBirthday" placeholder="Дата рождения"></div>
         <button class="btn btn-primary btn-full" onclick="register()">Зарегистрироваться</button>
-        <p class="form-footer">Уже есть аккаунт? <a href="#" onclick="navigate('login')">Войти</a></p>
+        <p class="form-footer">Уже есть аккаунт? <a href="#" onclick="showScreen('login')">Войти</a></p>
     </div>
 
     <!-- ВХОД -->
     <div id="loginScreen" class="form-card" style="display: none;">
-        <button class="btn-back" onclick="navigate('main')">← Назад</button>
+        <button class="btn-back" onclick="showScreen('main')">← Назад</button>
         <h2 class="form-title">Вход</h2>
         <div class="form-group"><input type="email" id="loginEmail" placeholder="Email"></div>
         <div class="form-group"><input type="password" id="loginPassword" placeholder="Пароль"></div>
         <button class="btn btn-primary btn-full" onclick="login()">Войти</button>
-        <p class="form-footer">Нет аккаунта? <a href="#" onclick="navigate('register')">Зарегистрируйтесь</a></p>
+        <p class="form-footer">Нет аккаунта? <a href="#" onclick="showScreen('register')">Зарегистрируйтесь</a></p>
     </div>
 
     <!-- ДЕТАЛИ ФИЛЬМА -->
